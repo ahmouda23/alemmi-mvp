@@ -5,7 +5,11 @@ const { ethers } = require("ethers");
 const app = express();
 app.use(express.json());
 
-const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+const ethers = require("ethers");  // Use require for ethers.js v5
+
+// Initialize provider (RPC URL must be set in your .env file)
+const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
 // Health Check Route
